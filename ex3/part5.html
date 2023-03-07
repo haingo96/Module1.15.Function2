@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus']
+    const starName = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+
+    const inputStar = prompt('Input your star')
+    if (findStarNameIndex(inputStar) === star.length){
+        alert("Can't find your star")
+    }else {
+        alert(`Your star name is ${starName[findStarNameIndex(inputStar)]}`)
+    }
+
+    function findStarNameIndex(inputStar) {
+        let cnt = 0
+        for (let i = 0; i < star.length; i++) {
+            if (star[i] === inputStar) {
+                return cnt
+            }
+            cnt++
+        }
+        return cnt
+    }
+</script>
+</body>
+</html>
