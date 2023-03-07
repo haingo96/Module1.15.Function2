@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isInteger(inputNumber) {
+        inputNumber = inputNumber.toString()
+        let inputNumberWithoutHyphen = inputNumber
+        if (inputNumber.includes('-')) {
+            if (inputNumber.indexOf('-') !== 0) {
+                return false
+            } else {
+                inputNumberWithoutHyphen = inputNumber.split('')
+                inputNumberWithoutHyphen.splice(inputNumberWithoutHyphen.indexOf('-'), 1)
+            }
+        }
+
+        for (let i = 0; i < inputNumberWithoutHyphen.length; i++) {
+            if (inputNumberWithoutHyphen[i] < '0' || inputNumberWithoutHyphen[i] > '9') {
+                return false
+            }
+        }
+        return true
+    }
+
+    function checkPositive(inputNumber){
+        if (isInteger(inputNumber) === false){
+            return false
+        }
+        return inputNumber > 0
+    }
+
+    alert(checkPositive(-1.3))
+</script>
+</body>
+</html>

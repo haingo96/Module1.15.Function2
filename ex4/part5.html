@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findMin(a, b, c) {
+        if (isInteger(a) === false){
+            return alert('a is not integer')
+        }
+        if (isInteger(b) === false){
+            return alert('b is not integer')
+        }
+        if (isInteger(c) === false){
+            return alert('c is not integer')
+        }
+
+        let min = a
+
+        if (b < min){
+            min = b
+        }
+
+        if (c < min){
+            min = c
+        }
+
+        return min
+    }
+
+    alert(findMin(-3,4,2))
+
+    function isInteger(inputNumber){
+        inputNumber = inputNumber.toString()
+        let inputNumberWithoutHyphen = inputNumber
+        if (inputNumber.includes('-')){
+            if (inputNumber.indexOf('-') !== 0){
+                return false
+            } else {
+                inputNumberWithoutHyphen = inputNumber.split('')
+                inputNumberWithoutHyphen.splice(inputNumberWithoutHyphen.indexOf('-'), 1)
+            }
+        }
+
+        for (let i = 0; i < inputNumberWithoutHyphen.length; i++) {
+            if (inputNumberWithoutHyphen[i] < '0' || inputNumberWithoutHyphen[i] > '9'){
+                return false
+            }
+        }
+        return true
+    }
+</script>
+</body>
+</html>

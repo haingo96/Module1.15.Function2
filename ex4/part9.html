@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkInclude(inputArr, inputChar) {
+        let cnt = 0
+        for (let i = 0; i < inputArr.length; i++) {
+            if (inputArr[i] === inputChar){
+                cnt ++
+            }
+        }
+
+        if (cnt === 0){
+            return -1
+        }else {
+            return cnt
+        }
+    }
+
+    console.log(checkInclude('iai', '0'))
+</script>
+</body>
+</html>

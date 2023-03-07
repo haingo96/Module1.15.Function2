@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function reverseArr(inputArr) {
+        let tempArr = []
+        for (let i = inputArr.length - 1; i >= 0; i--) {
+            tempArr.push(inputArr[i])
+        }
+        inputArr = tempArr
+        return inputArr
+    }
+
+    let inputArr = [0, 1, 2, 3, 4, 5]
+    alert(reverseArr(inputArr))
+</script>
+</body>
+</html>

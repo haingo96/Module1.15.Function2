@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function countDot(inputStr) {
+        let cnt = 0
+        for (let i = 0; i < inputStr.length; i++) {
+            if (inputStr[i] === '.') {
+                cnt++
+            }
+        }
+        return cnt
+    }
+
+    function isNumber(inputStr) {
+        if (inputStr.includes('.')) {
+            if (inputStr.indexOf('.') === 0) {
+                return false
+            }
+            if (countDot(inputStr) > 1) {
+                return false
+            }
+        }
+
+        if (inputStr.includes('-')) {
+            if (inputStr.indexOf('-') !== 0) {
+                return false
+            }
+        }
+
+        const inputStrToChar = inputStr.split('')
+
+        if (inputStr.includes('.') || inputStr.includes('-')) {
+            inputStrToChar.splice(inputStrToChar.indexOf('.'), 1)
+            inputStrToChar.splice(inputStrToChar.indexOf('-'), 1)
+        }
+
+        for (let i = 0; i < inputStrToChar.length; i++) {
+            if (inputStrToChar[i] < '0' || inputStrToChar[i] > '9') {
+                return false
+            }
+        }
+
+        return true
+    }
+
+    alert(isNumber('-14.9'))
+
+</script>
+</body>
+</html>
