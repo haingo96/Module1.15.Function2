@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <h2>Add New Product</h2>
+    <input type="text" placeholder="New Product" id="newProduct">
+    <input type="button" value="Add" id="add" onclick="addNewProduct()">
+</form>
+<div>
+    <h2>Display All Product</h2>
+    <p>Product Name</p>
+    <table id="displayTable">
+
+    </table>
+</div>
+<script>
+    let productList = []
+
+    function getNewProductName() {
+        return document.getElementById('newProduct').value;
+    }
+
+    function saveEditedProductName(index){
+        console.log(`product${index}`)
+        productList[`${index}`] = document.getElementById('editProduct').value
+        document.getElementById(`product${index}`).innerHTML = document.getElementById('editProduct').value
+
+    }
+
+    function displayEditFieldEditAndSave(index) {
+        console.log(`product${index}`)
+        let currentProduct = document.getElementById(`product${index}`).innerHTML;
+        document.getElementById(`product${index}`).innerHTML =
+            `<input id="editProduct" value="">
+            <input type="button" id="save" value="Save" onclick="saveEditedProductName(${index})">
+            `
+        document.getElementById("editProduct").value = currentProduct;
+    }
+
+    function editProduct(product) {
+        displayEditFieldEditAndSave(productList.indexOf(product))
+
+    }
+
+    function deleteProduct(product) {
+        productList.splice(productList.indexOf(product), 1)
+        console.log(productList)
+        displayProductList()
+    }
+
+    function displayProductList() {
+        let tableResult = ''
+        for (let i = 0; i < productList.length; i++) {
+            tableResult +=
+                `<tr>
+                    <td id="product${i}">${productList[i]}</td>
+                    <td><button id="edit" onclick="editProduct(productList[${i}])">Edit</button></td>
+                    <td><button id="delete" onclick="deleteProduct(productList[${i}])">Delete</button></td>
+                </tr>`
+        }
+        document.getElementById('displayTable').innerHTML = tableResult
+        document.getElementById('newProduct').value = ''
+    }
+
+    function addNewProduct(){
+        productList.push(getNewProductName())
+        console.log(productList)
+        displayProductList()
+    }
+</script>
+</body>
+</html>
