@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const inputStr = 'redder'
+    let inputStrToStr = inputStr.split('')
+    alert(isPalindrome(inputStrToStr))
+
+    function isPalindrome(inputStr) {
+        if (inputStr.length <= 1){
+            return true
+        }
+        if (inputStr[0] === inputStr[inputStr.length - 1]){
+            return isPalindrome(inputStr.splice(1,-1))
+        }
+        return false
+    }
+</script>
+</body>
+</html>
